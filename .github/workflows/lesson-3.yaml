@@ -6,7 +6,7 @@ on:
       - lesson-3
 jobs:
   deploy:
-    needs: [functuon_test]
+    needs: [function_test]
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -24,8 +24,8 @@ jobs:
       run:
         working-directory: frontend
     steps:
-      -uses: actions/checkout@v4
-      -run: npm install
-      -name: Run function tests
+      - uses: actions/checkout@v4
+      - run: npm install
+      - name: Run function tests
       run: npm test -- --coverage --watchAll=false
 
