@@ -28,3 +28,4 @@ jobs:
       -run: npm install
       -name: Run function tests
       run: npm test -- --coverage --watchAll=false
+

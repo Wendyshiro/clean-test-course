@@ -10,7 +10,7 @@ describe('Test Order', () => {
   let orderName;
   let orderItems;
   beforeEach(() => {
-    //Arrange:
+    //Arrange: set up input values for the tests
     //Setup Order Context
     orderName = 'test-fun';
     orderItems = [
@@ -26,7 +26,7 @@ describe('Test Order', () => {
 
   test('Test Delivery Fee', async () => {
     //Add a Test to verify that delivery fee shows up here
-    //Act:
+    //Act:invoke the functionality to be tested
     //Setup the Mock API
     setupMock();
     //Call the page
@@ -37,7 +37,8 @@ describe('Test Order', () => {
     );
     //Assert: replace the return true.
     await waitFor(() => {
-      return true;
+      expect(screen.getAllByText('$2.50'))
+        .toHaveLength(1);
     });
   });
 
@@ -63,7 +64,8 @@ describe('Test Order', () => {
     );
     //Assert: replace the return true.
     await waitFor(() => {
-      return true;
+      expect(screen.getAllByText('$5.00'))
+        .toHaveLength(1);
     });
   });
 });
